@@ -1,4 +1,4 @@
-package tramberend7215.a01;
+package Kevin832924.a01;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -17,7 +17,9 @@ public class Main {
 
 		for (int x = 0; x != width; x++) {
 			for (int y = 0; y != height; y++) {
-				image.setRGB(x, y, colorForRedSquareOnBlue(x, y));
+			
+				image.setRGB(x, y, colorForRedCircleOnBlue(x, y));
+				
 			}
 		}
 
@@ -30,11 +32,39 @@ public class Main {
 		}
 	}
 
-	static int colorForRedSquareOnBlue(int x, int y) {		
-		int size = 100;
-		if (Math.abs(width / 2 - x) < size / 2 && Math.abs(height / 2 - y) < size / 2)
-			return new Color(255, 0, 0).getRGB();
-		else
-			return new Color(200, 200, 255).getRGB();
+	static int colorForRedCircleOnBlue(int x, int y) {
+		
+		int rad = 80; //radius
+		int r = 220;  
+		int g = 220;
+		int b = 255;
+	
+		int x1 = width/2;	
+		int y1 = height/2;
+		
+		/* calculate coordinates of centered circle */
+		if ((Math.sqrt((x1-x)*(x1-x) + (y1-y)*(y1-y))) <= rad  ) 
+			
+				return new Color(255, 0, 0).getRGB(); 	// set color of circle
+		
+		else {
+				/* set background color with gradient */
+				if ((r-y)>0 && (g-y)>0)
+					
+						return new Color(r-y, g-y, b).getRGB();
+				else // r & b can't be negative
+			
+						return new Color(0, 0, b).getRGB();
+			
+			
+		
+	}
 	}
 }
+		
+		
+	
+	
+
+
+

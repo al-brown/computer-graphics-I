@@ -1,4 +1,4 @@
-package Kevin832924.a02;
+package kevin832924.a02;
 
 import java.awt.Color;
 import java.util.Random;
@@ -25,8 +25,8 @@ public class Circle implements Comparable<Object> {
 
 	}
 
-	public boolean isHit(int x, int y) {
-		if ((Math.sqrt((pos_x - x - rad) * (pos_x - x - rad) + ((pos_y - y - rad) * (pos_y - y - rad)))) < rad)
+	public boolean isHit(double x, double y) {
+		if (Math.sqrt((getPos_x() - x) * (getPos_x() - x)+ (getPos_y() - y) * (getPos_y() - y)) < rad)
 			return true;
 		else
 			return false;

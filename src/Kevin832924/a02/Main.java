@@ -1,7 +1,7 @@
-package Kevin832924.a02;
+package kevin832924.a02;
 
 import javax.imageio.ImageIO;
-import Kevin832924.a02.Circle;
+import kevin832924.a02.Circle;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
@@ -9,48 +9,70 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
-public class Main {
+public class Main2 {
 
-	static String name = "doc/a02.png";
+	static String name = "doc/a04.png";
 	static int width = 480;
 	static int height = 270;
-	static int readRate = 101;
-	public static int quantity = 70;
+	static int readRate = 10;
+	public static int quantity = 50;
 	static List<Circle> circles = new ArrayList<>();
-	private static double xs;
-	private static double ys;
+
+	static double gamma = 2.2;
 
 	public static void main(String[] args) {
+
 		File outputfile = new File(name);
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		for (int counter = 0; counter != quantity; counter++) {
 
-			Circle c = new Circle();
-			circles.add(c);
-			Collections.sort(circles);
+			Circle circle = new Circle();
+			circles.add(circle);
+			Comparator<Circle> comparator = Collections.reverseOrder();
+			Collections.sort(circles, comparator);
 
 		}
 
 		for (int x = 0; x != width; x++) {
 			for (int y = 0; y != height; y++) {
-				// *point sampling*
-				// double xs = x + 0.5;
-				// double ys = y + 0.5;
-				image.setRGB(x, y, setBackgroundColor(y));
-				for (Circle c : circles) {
 
-					if (c.isHit(x, y)) {
-						image.setRGB(x, y, setCircles(x, y, 2.2, c.getR(), c.getG(), c.getB()));
+				double red = 0;
+				double green = 0;
+				double blue = 0;
+				for (int xi = 0; xi < readRate; xi++) {
+					for (int yi = 0; yi < readRate; yi++) {
+						double xs = x + (xi + Math.random()) / readRate;
+						double ys = y + (yi + Math.random()) / readRate;
+
+						for (Circle c : circles) {
+							if (c.isHit(xs, ys)) {
+
+								red += c.getR();
+								green += c.getG();
+								blue += c.getB();
+								System.out.println(blue);
+								break;
+
+							}
+						}
 					}
-
 				}
-			}
 
+				int new_red = gammaCorrector((red / Math.pow(readRate, 2)));
+				int new_green = gammaCorrector((green / Math.pow(readRate, 2)));
+				int new_blue = gammaCorrector((blue / Math.pow(readRate, 2)));
+				// System.out.println(new_blue);
+				image.setRGB(x, y, new Color(new_red, new_green, new_blue).getRGB());
+
+			}
 		}
 
-		try {
+		try
+
+		{
 			ImageIO.write(image, "png", outputfile);
 
 			System.out.println("Wrote image: " + name);
@@ -60,53 +82,10 @@ public class Main {
 
 	}
 
-	static int setBackgroundColor(int y) {
-
-		int r = 220;
-		int g = 220;
-		int b = 255;
-
-		if ((r - y) > 0 && (g - y) > 0)
-			return new Color(r - y, g - y, b).getRGB(); // set background color
-														// with gradient
-
-		else
-			return new Color(0, 0, b).getRGB(); // r & b can't be negative
-
-	}
-
-	static int setCircles(int x, int y, double gamma, int r, int g, int b) {
-
-		/* gamma corrector */
-
-		double new_gamma = 1 / gamma;
-		int new_r = (int) (255 * (Math.pow((double) r / (double) 255, new_gamma)));
-		int new_g = (int) (255 * (Math.pow((double) g / (double) 255, new_gamma)));
-		int new_b = (int) (255 * (Math.pow((double) b / (double) 255, new_gamma)));
-
-		/* calculate coordinates of circle */
-
-		return new Color(new_r, new_g, new_b).getRGB();
-
-	}
-
-	/* SuperSampling */
-
-	static int stratifiedSampling(int x, int y, int r, int g, int b) {
-		double s = 0;
-		for (int xi = 0; xi < readRate; xi++) {
-			for (int yi = 0; yi < readRate; y++) {
-				double rx = Math.random();
-				double ry = Math.random();
-				xs = x + (xi + rx) / readRate;
-				ys = y + (yi + ry) / readRate;
-				s = setCircles((int) xs, (int) ys, 2.2, r, g, b) + s;
-
-			}
-
-		}
-
-		return (int) (s / readRate); // calculate mean value
+	static int gammaCorrector(double d) {
+		double new_gamma = 1.0 / gamma;
+		int new_d = (int) (255 * (Math.pow((double) d / (double) 255, new_gamma)));
+		return new_d;
 	}
 
 }

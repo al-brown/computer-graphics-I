@@ -4,15 +4,35 @@ import java.awt.Color;
 import java.util.Random;
 
 public class Circle implements Comparable<Object> {
-
-	int pos_x;
+    
+    /**
+    *
+    * This class represents a circle with:
+    * 
+    * 1. random position
+    * 2. random radius
+    * 3. random color
+    * 
+    * 
+    *@author Mr. Prince
+    * 
+    **/
+    
+	int pos_x; 
 	int pos_y;
-	Color color;
+	
 	int rad;
 	int r;
 	int g;
 	int b;
-
+	
+    /*
+    *@param pos_x x-center of circle
+    *@param pos_y y-center of circle
+    *@param rad radius of circle
+    *@param r,g,b rgb-values (color)
+    
+    */
 	public Circle() {
 
 		pos_x = new Random().nextInt(481);

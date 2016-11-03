@@ -14,7 +14,7 @@ public class Circle implements Comparable<Object> {
     * 3. random color
     * 
     * 
-    *@author Mr. Prince
+    *@author Mr. Kevin
     * 
     **/
     

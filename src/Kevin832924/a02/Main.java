@@ -36,12 +36,13 @@ public class Main2 {
 
 		}
 
-		for (int x = 0; x != width; x++) {
-			for (int y = 0; y != height; y++) {
+		    for (int x = 0; x != width; x++) {
+			    for (int y = 0; y != height; y++) {
 
 				double red = 0;
 				double green = 0;
 				double blue = 0;
+				
 				for (int xi = 0; xi < readRate; xi++) {
 					for (int yi = 0; yi < readRate; yi++) {
 						double xs = x + (xi + Math.random()) / readRate;

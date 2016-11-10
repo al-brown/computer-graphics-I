@@ -1,7 +1,5 @@
 package kevin832924.a03;
 
-
-
 /**
  * The Class Vec3 represents a mathematical vector with three values (double)
  * 

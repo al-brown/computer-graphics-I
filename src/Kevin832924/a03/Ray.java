@@ -1,7 +1,5 @@
 package kevin832924.a03;
 
-import java.util.Objects;
-
 /**
  *
  * @author Mr. Kevin
@@ -49,25 +47,8 @@ public class Ray {
 		return result;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj) {
-			return true;
-		}
-		if (obj == null) {
-			return false;
-		}
-		if (getClass() != obj.getClass()) {
-			return false;
-		}
-		final Ray other = (Ray) obj;
-		if (!Objects.equals(this.o, other.o)) {
-			return false;
-		}
-		return Objects.equals(this.d, other.d);
-	}
 
-	@Override
+
 	public String toString() {
 		return "Ray [origin=" + o + ", direction=" + d + "]";
 	}

@@ -36,7 +36,7 @@ public class LambertMaterial extends Scattered {
 	 *
 	 * @param hit
 	 *            the Hit object that has to be checked
-	 * @param world
+	 * @param group
 	 *            the group that contains the shape objects of the Hit object
 	 * @param tracer
 	 * @return the color

@@ -1,10 +1,15 @@
-package kevin832924.a05.Art;
+package kevin832924.a06.Art;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.util.Vector;
 
-import kevin832924.a05.Bib.Vec3;
+import kevin832924.a06.Bib.Vec3;
+
+/**
+ * 
+ * @author Mr. Kevin
+ */
 
 public final class RayTracer {
 

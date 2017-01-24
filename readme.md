@@ -17,7 +17,11 @@ Hier steht eine Liste aller abgegebenen Lösungen.
 - [Aufgabe 4: Unbeleuchteter Planet](doc/a04.md)
 - [Aufgabe 5: Beleuchteter Planet](doc/a05.md)
 - [Aufgabe 6: Bewegliche Kamera](doc/a06.md)
-- [Aufgabe 10: Licht und Schatten](doc/a10.md)
+- [Aufgabe 10:Licht und Schatten](doc/a10.md)
+ 
+-[Bonusaufgabe 1 - Zylinder und Kegel](doc/b01.md)
+-[Bonusaufgabe 2 - Torus](doc/b02.md)
+-[Bonusaufgabe 3 - Parallelisierung](doc/b03.md)
 
 
 ## Struktur

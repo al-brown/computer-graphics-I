@@ -22,6 +22,7 @@ Hier steht eine Liste aller abgegebenen Lösungen.
 - [Bonusaufgabe 1 - Zylinder und Kegel](doc/b01.md)
 - [Bonusaufgabe 2 - Torus](doc/b02.md)
 - [Bonusaufgabe 3 - Parallelisierung](doc/b03.md)
+- [Bonusaufgabe 4- Street View Photo Sphere Kamera](doc/b04.md)
 
 
 ## Struktur

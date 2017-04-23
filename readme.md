@@ -2,7 +2,7 @@
 
 ## Raytracer - Rendering Competition
 
-![](computer-graphics-I/doc/cg1-competition-ws-16-Mr_Kevin.png)
+![](doc/cg1-competition-ws-16-Mr_Kevin.png)
 
 ## Alle Lösungen
 
